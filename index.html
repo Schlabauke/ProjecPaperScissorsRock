@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scissors Paper Rock</title>
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="https://kit.fontawesome.com/c63e956a50.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <h2>Wieviele Runden möchtest Du spielen?</h2>
+            <input type="radio" name="Anzahl" id="five">
+            <label for="Anzahl">5</label>
+            <input type="radio" name="Anzahl" id="ten">
+            <label for="Anzahl">10</label>
+            <input type="radio" name="Anzahl" id="fifteen">
+            <label for="Anzahl">15</label>
+            <input type="radio" name="Anzahl" id="twenty">
+            <label for="Anzahl">20</label>
+        </section>
+    </header>
+    <main>
+        <section>
+            <p>User</p>
+            <p><span id="Points">0</span>:<span id="ComPoints">0</span></p>
+            <p>Computer</p>
+        </section>
+        <h1>Let's Play</h1>
+        <section>
+            <button onclick="spockMe(scissors)" value="Scissors" id="Scissors"><i
+                    class="far fa-hand-scissors"></i></button>
+            <button onclick="spockMe(paper)" value="Paper"><i class="far fa-hand-paper"></i></button>
+            <button onclick="spockMe(rock)" value="Rock"><i class="far fa-hand-rock"></i></button>
+            <button onclick="spockMe(spock)" value="Spock"><i class="far fa-hand-spock"></i></button>
+            <button onclick="spockMe(lizard)" value="Lizard"><i class="far fa-hand-lizard"></i></button>
+        </section>
+    </main>
+    <footer>
+        <h2>Make your move</h2>
+
+        <a href="index.html">restart</a>
+    </footer>
+
+    <!-- Level 2 -->
+
+
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
