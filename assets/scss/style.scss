@@ -1,0 +1,27 @@
+/* font-family: 'Inconsolata', monospace;
+borg-color: #60ce34
+color:whitesmoke, #2b53a7,#d6a444,#a71313*/
+
+@font-face {
+    font-family: "Star Next";
+    src: url(../fonts/_73A5E77.TTF);
+    font-family: "Borg";
+    src: url(../fonts/BORG9.TTF);
+}
+@import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap");
+body {
+    background: url("https://images.unsplash.com/photo-1528484701073-2b22dc76649e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80")
+        center/cover no-repeat;
+}
+header {
+    font-family: "Borg";
+    color: #60ce34;
+    text-align: center;
+    section {
+        font-family: "Inconsolata", monospace;
+        color: whitesmoke;
+        h2 {
+            font-size: 18px;
+        }
+    }
+}
