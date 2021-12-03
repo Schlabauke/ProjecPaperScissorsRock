@@ -1,3 +1,6 @@
+let points = document.getElementById("Points")
+let comPoints = document.getElementById("ComPoints")
+let output = document.getElementById("output")
 
 let choice = ""
 let computerChoice = () => {
@@ -18,27 +21,50 @@ let computerChoice = () => {
         case 4:
             choice = "Spok"
     }
-    /*  console.log(randomNumber)*/
-    console.log(choice)
     return choice
 }
 
-let button = document.getElementsByTagName('button')
-/* console.log(button) */
 let scissors = "Scissors"
 let paper = "Paper"
 let rock = "Rock"
 let spock = "Spock"
 let lizard = "Lizard"
 
-let points = document.getElementById("Points")
-let comPoints = document.getElementById("ComPoints")
 let userPoints = 0;
 let computerPoints = 0;
+let counter = 1;
+
+let counterOutput = document.getElementById("counterOutput")
+let Anzahl = document.getElementsByName("Anzahl")
+
+
+let maxRounds = () => {
+    for (let i = 0; i < Anzahl.length; i++) {
+        console.log(Anzahl[i].value)
+        if (Anzahl[i].checked) {
+            return Anzahl[i].value
+        }
+    }
+}
 
 let spockMe = (userChoice) => {
+    maxRounds()
+    counterOutput.innerHTML = `${counter}/ ${maxRounds()}`
+
+    if (counter == maxRounds()) {
+        if (userPoints < computerPoints) {
+            console.log("You've been assimilated")
+        } else if (userPoints > computerPoints) {
+            console.log("We defeated the Borg!")
+        } else if (userPoints == computerPoints) {
+            console.log("Rematch")
+        } else {
+            return null
+        }
+    }
+
     computerChoice()
-    console.log(userChoice)
+    output.innerHTML = `Computer picks: ${computerChoice}. You picked:${userChoice}.`
 
     let resultBoth = userChoice + choice
     console.log(resultBoth)
@@ -53,9 +79,10 @@ let spockMe = (userChoice) => {
         case "PaperSpock":
         case "SpockRock":
         case "RockScissors":
-            console.log("User +=1 Point")
             userPoints += 1
+            counter += 1
             points.innerHTML = userPoints
+            output.innerHTML = "You won!"
             break;
         case "PaperScissors":
         case "RockPaper":
@@ -69,19 +96,14 @@ let spockMe = (userChoice) => {
         case "ScissorsRock":
             console.log("Computer +=1 Point")
             computerPoints += 1
+            counter += 1
             comPoints.innerHTML = computerPoints
+            output.innerHTML = "Computer won!"
             break;
         default: userChoice == choice
             console.log('its a tie!')
-
+            counter += 1
+            output.innerHTML = "It's a tie!"
     }
-}
-
-
-
-
-/* Radiobuttons-Counter , Auswahl radiobutton.value*/
-let counter = 0;
-let maxRounds = () => {
 
 }
