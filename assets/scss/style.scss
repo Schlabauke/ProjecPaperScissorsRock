@@ -1,6 +1,7 @@
 /* font-family: 'Inconsolata', monospace;
 borg-color: #60ce34
-color:whitesmoke, #2b53a7,#d6a444,#a71313*/
+color:whitesmoke, #2b53a7,#d6a444,#a71313, #aaaaaa
+https://images.unsplash.com/photo-1528484701073-2b22dc76649e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80*/
 
 @font-face {
     font-family: "Star Next";
@@ -10,18 +11,130 @@ color:whitesmoke, #2b53a7,#d6a444,#a71313*/
 }
 @import url("https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400;500&display=swap");
 body {
-    background: url("https://images.unsplash.com/photo-1528484701073-2b22dc76649e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1631&q=80")
-        center/cover no-repeat;
+    background: url("../img/starsGreen.jpg") center/cover no-repeat;
+    font-family: "Inconsolata", monospace;
+    color: whitesmoke;
 }
 header {
     font-family: "Borg";
     color: #60ce34;
     text-align: center;
-    section {
+
+    .sectionOne {
         font-family: "Inconsolata", monospace;
         color: whitesmoke;
+        display: inline-block;
+        position: relative;
+        margin: 40px auto;
+        height: auto;
+        width: 500px;
+        padding: 20px;
         h2 {
-            font-size: 18px;
+            font-size: 2em;
         }
+        ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            overflow: auto;
+            li {
+                color: #d6a444;
+                display: inline-block;
+                position: relative;
+                width: 100%;
+                height: 100px;
+
+                label {
+                    display: block;
+                    position: relative;
+                    font-weight: 300;
+                    font-size: 1.35em;
+                    padding: 20px 25px 25px 25px;
+                    margin: 10px auto;
+                    height: 30px;
+                    cursor: pointer;
+                    transition: all 0.25s linear;
+                }
+                &:hover label {
+                    color: #ffffff;
+                }
+                .check {
+                    display: block;
+                    position: absolute;
+                    border: 2px solid #d6a444;
+                    border-radius: 100%;
+                    height: 20px;
+                    width: 20px;
+                    top: 30px;
+                    left: 20px;
+                    transition: border 0.25s linear;
+                }
+                &:hover .check {
+                    border: 2px solid #ffffff;
+                }
+                .check::before {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    border-radius: 100%;
+                    height: 10px;
+                    width: 10px;
+                    top: 5px;
+                    left: 5px;
+                    margin: auto;
+                    transition: background 0.25s linear;
+                    -webkit-transition: background 0.25s linear;
+                }
+                input[type="radio"]:checked ~ .check {
+                    border: 2px solid #a71313;
+                }
+                input[type="radio"]:checked ~ .check::before {
+                    background: #a71313;
+                }
+                input[type="radio"]:checked ~ label {
+                    color: #a71313;
+                }
+                input[type="radio"] {
+                    position: absolute;
+                    visibility: hidden;
+                }
+            }
+        }
+    }
+}
+main {
+    text-align: center;
+    section:nth-of-type(1) {
+        display: flex;
+        justify-content: space-between;
+        font-size: 2em;
+        margin: 0 2em;
+        p:nth-of-type(2) {
+            margin-right: 3.3em;
+        }
+        p:nth-of-type(3) {
+            font-family: "Borg";
+            color: #60ce34;
+        }
+    }
+    h2 {
+        font-weight: 300;
+    }
+    section:nth-of-type(2) {
+    }
+}
+footer {
+    text-align: center;
+    a {
+        text-decoration: none;
+        border: 2px solid #d6a444;
+        color: #aaaaaa;
+        margin: 5vh 0;
+        padding: 1vh 2vw;
+    }
+    &:hover {
+        color: whitesmoke;
     }
 }
