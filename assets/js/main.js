@@ -1,6 +1,23 @@
 let points = document.getElementById("Points")
 let comPoints = document.getElementById("ComPoints")
 let output = document.getElementById("output")
+let sectionOne = document.getElementById("sectionOne")
+let Borg = document.getElementById("Borg")
+let Enterprise = document.getElementById("Enterpise")
+let Rematch = document.getElementById("Rematch")
+
+let scissors = "Scissors"
+let paper = "Paper"
+let rock = "Rock"
+let spock = "Spock"
+let lizard = "Lizard"
+
+let userPoints = 0;
+let computerPoints = 0;
+let counter = 1;
+
+let counterOutput = document.getElementById("counterOutput")
+let Anzahl = document.getElementsByName("Anzahl")
 
 let choice = ""
 let computerChoice = () => {
@@ -24,50 +41,35 @@ let computerChoice = () => {
     return choice
 }
 
-let scissors = "Scissors"
-let paper = "Paper"
-let rock = "Rock"
-let spock = "Spock"
-let lizard = "Lizard"
-
-let userPoints = 0;
-let computerPoints = 0;
-let counter = 1;
-
-let counterOutput = document.getElementById("counterOutput")
-let Anzahl = document.getElementsByName("Anzahl")
-
-
 let maxRounds = () => {
     for (let i = 0; i < Anzahl.length; i++) {
-        console.log(Anzahl[i].value)
         if (Anzahl[i].checked) {
             return Anzahl[i].value
         }
     }
 }
-
+let rundenZahl = maxRounds()
 let spockMe = (userChoice) => {
     maxRounds()
     counterOutput.innerHTML = `${counter}/ ${maxRounds()}`
-
-    if (counter == maxRounds()) {
-        if (userPoints < computerPoints) {
-            console.log("You've been assimilated")
-        } else if (userPoints > computerPoints) {
-            console.log("We defeated the Borg!")
-        } else if (userPoints == computerPoints) {
-            console.log("Rematch")
-        } else {
-            return null
-        }
-    }
-
     computerChoice()
-    output.innerHTML = `Computer picks: ${computerChoice}. You picked:${userChoice}.`
 
+    if (counter == rundenZahl) {
+        if (userPoints < computerPoints) {
+            Borg.classList.toggle("Show")
+            sectionOne.style.display = "none"
+
+        } else if (userPoints > computerPoints) {
+            Enterprise.classList.toggle("Enterprise")
+            sectionOne.style.display = "none"
+        } else {
+            Rematch.classList.toggle("Show")
+            sectionOne.style.display = "none"
+        }
+        return null
+    }
+    output.innerHTML = `Borg picked: ${computerChoice}. You picked:${userChoice}.`
     let resultBoth = userChoice + choice
-    console.log(resultBoth)
     switch (resultBoth) {
         case "ScissorsPaper":
         case "PaperRock":
@@ -82,7 +84,7 @@ let spockMe = (userChoice) => {
             userPoints += 1
             counter += 1
             points.innerHTML = userPoints
-            output.innerHTML = "You won!"
+            output.innerHTML = "Strike!"
             break;
         case "PaperScissors":
         case "RockPaper":
@@ -94,16 +96,13 @@ let spockMe = (userChoice) => {
         case "SpockPaper":
         case "RockSpock":
         case "ScissorsRock":
-            console.log("Computer +=1 Point")
             computerPoints += 1
             counter += 1
             comPoints.innerHTML = computerPoints
-            output.innerHTML = "Computer won!"
+            output.innerHTML = "You got hit!"
             break;
         default: userChoice == choice
-            console.log('its a tie!')
             counter += 1
-            output.innerHTML = "It's a tie!"
+            output.innerHTML = "Target missed!"
     }
-
 }
