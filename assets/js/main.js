@@ -3,7 +3,7 @@ let comPoints = document.getElementById("ComPoints")
 let output = document.getElementById("output")
 let sectionOne = document.getElementById("sectionOne")
 let Borg = document.getElementById("Borg")
-let Enterprise = document.getElementById("Enterpise")
+let Enterprise = document.getElementById("Enterprise")
 let Rematch = document.getElementById("Rematch")
 
 let scissors = "Scissors"
@@ -58,9 +58,8 @@ let spockMe = (userChoice) => {
         if (userPoints < computerPoints) {
             Borg.classList.toggle("Show")
             sectionOne.style.display = "none"
-
         } else if (userPoints > computerPoints) {
-            Enterprise.classList.toggle("Enterprise")
+            Enterprise.classList.toggle("Show")
             sectionOne.style.display = "none"
         } else {
             Rematch.classList.toggle("Show")
